@@ -4,7 +4,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 
 export default function GalleryList  ({pic}) {
     return (
-        <div>
+        <div data-testid="galleryList">
             <ImageList sx={{ width: 1200, height: 1200 }} cols={3} rowHeight={400}>
       {pic.map((pic, id) => (
         <ImageListItem key={pic.id}>
@@ -16,10 +16,7 @@ export default function GalleryList  ({pic}) {
           />
         </ImageListItem>
       ))}
-    </ImageList>
-            {/* {pic.map((pic, id) => (
-            <GalleryItem key= {id} pic={pic}/>
-        ))} */}
+    </ImageList>           
         </div>
     );
 };
