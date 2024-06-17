@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList'
+
+
 function App() {
 
   let [pic, setPic] = useState ([]);
@@ -15,7 +17,7 @@ function App() {
         console.log(error);
       })
   }
-  useEffect(fetchPics, []);
+  useEffect(() => fetchPics(), []);
 
     return (
       <div data-testid="app">
@@ -24,7 +26,7 @@ function App() {
         </header>
 
         <p>The gallery goes here!</p>
-        <GalleryList gallerylist={pic} />
+        <GalleryList pic={pic} />
         <img src="images/goat_small.jpg"/>
         <img src="images/goat_stache.png"/>
       </div>
