@@ -3,7 +3,7 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 // PUT /gallery/like/:id
-router.put('/like/:id', (req, res) => {
+router.put('/likes/:id', (req, res) => {
   // code here
   let { id } = req.params;
   console.log('id:', id);
