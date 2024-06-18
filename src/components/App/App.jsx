@@ -5,7 +5,7 @@ import GalleryList from '../GalleryList/GalleryList'
 
 function App() {
 
-  let [pic, setPic] = useState ([]);
+  let [pic, setPic] = useState([]);
 
   const fetchPics = () => {
     axios.get('/api/gallery')
@@ -17,20 +17,19 @@ function App() {
         console.log(error);
       })
   }
-  useEffect(() => fetchPics(), []);
+  useEffect(fetchPics, []);
 
-    return (
-      <div data-testid="app">
-        <header>
-          <h1>React Gallery</h1>
-        </header>
-
-        <p>The gallery goes here!</p>
-        <GalleryList pic={pic} />
-        {/* <img src="images/goat_small.jpg"/>
+  return (
+    <div data-testid="app">
+      <header>
+        <h1>React Gallery</h1>
+      </header>
+      <h3>Important things in my life</h3>
+      <GalleryList pic={pic} fetchPics={fetchPics}/>
+      {/* <img src="images/goat_small.jpg"/>
         <img src="images/goat_stache.png"/> */}
-      </div>
-    );
+    </div>
+  );
 }
 
 export default App;

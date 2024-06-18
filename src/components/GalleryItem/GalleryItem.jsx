@@ -1,33 +1,31 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './GalleryItem.css'
 
 
 export default function GalleryItem({ pic, fetchPics }) {
-
+    
     const [photoDescription, setDescription] = useState(false);
     const [likeCount, setLikeCount] = useState(0);
-    // useState variable for toggle
     const toggleDesc = () => {
         setDescription(!photoDescription);
     };
-    //          event handler to toggle state
 
-
-    // like button axios.put
     const likePhoto = (id) => {
         console.log(id)
         axios.put(`/api/gallery/likes/${id}`)
             .then(response => {
                 console.log('liked photo:', response)
-                setLikeCount(likeCount + 1);
-                // fetchPics();
-            })
-            .catch(error => {
+                // setLikeCount(likeCount + 1);
+                fetchPics();               
+            }) 
+            .catch((error) => {
                 console.log('cannot like photo error', error);
             });
     };
+
+   
 
     return (
         <div data-testid="galleryItem">
@@ -38,7 +36,7 @@ export default function GalleryItem({ pic, fetchPics }) {
                     : <img src={pic.url} alt={pic.title} />}
             </div>
             <div data-testid="like" >
-                <button onClick={() => likePhoto(pic.id)}>Like</button><p>Likes: {likeCount}</p>
+                <button onClick={() => likePhoto(pic.id)} >Like</button><p>Likes: {pic.likes}</p>
             </div>
         </div>
     );
