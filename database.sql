@@ -3,7 +3,7 @@ CREATE TABLE "gallery" (
   "url" VARCHAR,
   "title" VARCHAR,
   "description" TEXT,
-  "likes" INTEGER DEFAULT 0
+  "like" INTEGER DEFAULT 0
 );
 
 INSERT INTO "gallery" 

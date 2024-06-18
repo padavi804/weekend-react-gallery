@@ -3,12 +3,12 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 // PUT /gallery/like/:id
-router.put('/likes/:id', (req, res) => {
+router.put('/like/:id', (req, res) => {
   // code here
   let { id } = req.params;
   console.log('id:', id);
   const sqlText = `
-  UPDATE gallery SET likes=likes + 1 WHERE id=$1`;
+  UPDATE gallery SET "like"="like" + 1 WHERE id=$1`;
 
   pool.query(sqlText, [id])
   .then((result) => {
