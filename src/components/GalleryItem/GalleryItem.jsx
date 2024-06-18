@@ -16,7 +16,7 @@ const toggleDesc = () => {
 // like button axios.put
 
   return (
-    <div data-testid="galleryList">       
+    <div data-testid="galleryItem">           
         <img src={pic.url} alt="Gallery Image" />    
     </div>
   );
