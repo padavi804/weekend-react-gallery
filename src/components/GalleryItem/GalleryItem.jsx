@@ -32,10 +32,9 @@ export default function GalleryItem({ pic, fetchPics }) {
     return (
         <div data-testid="galleryItem">
             <h4>{pic.title}</h4>
-            <div data-testid="toggle" onClick={() => toggleDesc(pic.id)}>
+            <div key={pic.id} data-testid="toggle" onClick={() => toggleDesc(pic.id)}>
                 {photoDescription ? (
-                    <div className="description">
-                        <br /> {pic.description} </div>)
+                    <div className="description"> {pic.description} </div>)
                     : <img src={pic.url} alt={pic.title} />}
             </div>
             <div data-testid="like" >
