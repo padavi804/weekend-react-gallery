@@ -27,8 +27,8 @@ function App() {
 
         <p>The gallery goes here!</p>
         <GalleryList pic={pic} />
-        <img src="images/goat_small.jpg"/>
-        <img src="images/goat_stache.png"/>
+        {/* <img src="images/goat_small.jpg"/>
+        <img src="images/goat_stache.png"/> */}
       </div>
     );
 }
