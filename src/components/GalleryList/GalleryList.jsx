@@ -6,7 +6,7 @@ export default function GalleryList  ({id, pic, fetchPics}) {
     return (
         <div data-testid="galleryList" className='galleryList'>
             {pic.map (pic => (
-            <GalleryItem key={id} pic={pic} fetchPics={fetchPics}/>
+            <GalleryItem key={pic.id} pic={pic} fetchPics={fetchPics}/>
         ))}
         </div>
     );

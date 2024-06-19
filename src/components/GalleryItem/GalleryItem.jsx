@@ -17,7 +17,7 @@ export default function GalleryItem({ pic, fetchPics }) {
 
     const likePhoto = (id) => {
         console.log(id)
-        axios.put(`/api/gallery/like/${id}`)
+        axios.put(`/api/gallery/likes/${id}`)
             .then(response => {
                 console.log('liked photo:', response)
                 // setLikeCount(likeCount + 1);
@@ -33,14 +33,14 @@ export default function GalleryItem({ pic, fetchPics }) {
     return (
         <div data-testid="galleryItem">
             <h4>{pic.title}</h4>
-            <div key={pic.id} data-testid="toggle" onClick={() => toggleDesc(pic.id)}>
+            <div data-testid="toggle" onClick={() => toggleDesc(pic.id)}>
                 {photoDescription ? (
                     <div className="description"> {pic.description} </div>)
                     : <img src={pic.url} alt={pic.title} />}
             </div>
-            <div data-testid="like" >
-                <Stack spacing={4} direction="row">
-                    <Badge badgeContent={pic.like} color="primary" onClick={() => likePhoto(pic.id)}>
+            <div  >
+                <Stack spacing={2} direction="row">
+                    <Badge data-testid="like" badgeContent={pic.likes} color="primary" onClick={() => likePhoto(pic.id)}>
                         <ThumbUpIcon color='action' />
                     </Badge>
                 </Stack>
